@@ -18,3 +18,6 @@ Route::get('/', function () {
 });
 
 Route::get('/funcionarios', 'FuncionariosController@index');
+Route::get('/funcionarios/cadastrar', 'FuncionariosController@create');
+Route::get('/funcionarios/visualizar', 'FuncionariosController@show');
+Route::get('/funcionarios/alterar', 'FuncionariosController@change');
