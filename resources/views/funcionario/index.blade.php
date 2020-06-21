@@ -2,7 +2,7 @@
     <body>
         <!--Começo Formulário-->
         <form action="#" class="container">
-            <h3 class="page-header">Pesquisar Funcionário</h3>
+            <h3 class="page-header">Lista de funcionários</h3>
             <hr>
 
             <!-- Buscar Funcionário-->
@@ -31,21 +31,23 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <!--EDITAR!!!-->
-                                    <div>
-                                        <td><input type="checkbox" name="#" value="#"></td>
-                                        <td>Nome Funcionário</td>
-                                    </div>  
-                                    <!--!!!!!!!!--> 
+                                @foreach($funcionarios as $key => $funcionario)
+                                    <tr>
+                                        <!--EDITAR!!!-->
+                                        <div>
+                                            <td><input type="checkbox" name="#" value="#"></td>
+                                            <td>{{ $funcionario->nome }}</td>
+                                        </div>  
+                                        <!--!!!!!!!!--> 
 
-                                    <td class="inativar" align="center" style="width:100px"><a href="#"><img src="img/botoes/inativar.png"></a></td>
+                                        <td class="inativar" align="center" style="width:100px"><a href="/funcionarios/inativar/{{$funcionario->id}}"><img src="img/botoes/inativar.png"></a></td>
 
-                                    <td  class="alterar" align="center" style="width:100px"><a href="#"><img src="img/botoes/alterar.png"></a></td>
+                                        <td  class="alterar" align="center" style="width:100px"><a href="/funcionarios/alterar/{{$funcionario->id}}"><img src="img/botoes/alterar.png"></a></td>
 
-                                    <td class="excluir" align="center" style="width:100px"><a href="#"><img src="img/botoes/excluir.png"></a></td>
+                                        <td class="excluir" align="center" style="width:100px"><a href="#"><img src="img/botoes/excluir.png"></a></td>
 
-                                </tr>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
