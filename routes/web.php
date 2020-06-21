@@ -16,8 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::prefix('/funcionarios')->name('funcionarios.')->group(function(){
+    Route::get('/', 'FuncionariosController@index');
+    Route::get('/cadastrar', 'FuncionariosController@create');
+    Route::get('/visualizar', 'FuncionariosController@show');
+    Route::get('/alterar', 'FuncionariosController@change');
+    Route::post('/salvar', 'FuncionariosController@save');
+});
 
-Route::get('/funcionarios', 'FuncionariosController@index');
-Route::get('/funcionarios/cadastrar', 'FuncionariosController@create');
-Route::get('/funcionarios/visualizar', 'FuncionariosController@show');
-Route::get('/funcionarios/alterar', 'FuncionariosController@change');

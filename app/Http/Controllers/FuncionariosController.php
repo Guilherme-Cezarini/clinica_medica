@@ -37,4 +37,9 @@ class FuncionariosController extends Controller
         return view('funcionario.alter');
     }
 
+    public function save(Request $request)
+    {
+        dd($request->all());
+    }
+
 }
