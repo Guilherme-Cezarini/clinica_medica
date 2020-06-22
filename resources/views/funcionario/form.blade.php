@@ -16,11 +16,11 @@
 <div class="row">
     <div class="form-group col-md-6">
         <label for="rgFunc">RG</label>
-        <input type="text" name="rg" class="form-control" id="rgFunc" placeholder="Ex.: 00.000.000-0" required>
+        <input type="text" name="rg" class="form-control" data-mask="00.000.000-0" maxlength="13" autocomplete="off" id="rgFunc" placeholder="Ex.: 00.000.000-0" required>
     </div>
     <div class="form-group col-md-6">
         <label for="cpfFunc">CPF</label>
-        <input type="text" name="cpf" class="form-control cpf_mask" id="cpfFunc" placeholder="Ex.: 000.000.000-00" required>
+        <input type="text" name="cpf" class="form-control cpf-mask" id="cpfFunc" placeholder="Ex.: 000.000.000-00" required>
     </div>
 </div>
 
@@ -45,11 +45,11 @@
 <div class="row">
     <div class="form-group col-md-6">
         <label for="carFunc">Cargo</label>
-        <input type="text" name="cargo" class="form-control" id="carFunc" placeholder="Secretária" required>
+        <input type="text" name="cargo" class="form-control" id="carFunc" placeholder="Ex.: Secretária" required>
     </div>
     <div class="form-group col-md-6">
         <label for="salFunc">Salário</label>
-        <input type="text" name="salario" class="form-control" id="salFunc" placeholder="R$" required>
+        <input type="text" name="salario" class="form-control" data-mask="#.##0,00" id="salFunc" placeholder="R$" required>
     </div>
 </div>
 

@@ -61,9 +61,13 @@
             </form>
             <!-- Final Formulário-->
         @else
-            <div id="list" class="row">
-                <p> Não há funcionários cadastrados. </p>    
-            </div>
+            <!--<div id="list">
+                <p class="erro"> Não há funcionários cadastrados. </p>    
+            </div>-->
+            <div class="alert alert-danger alert-dismissable">
+	            <a href="#" class="close" data-dismiss="alert" aria-hidden="true">×</a>
+	            <p class="erro"><strong>Não há funcionários cadastrados com esse nome.</strong></p>
+                </div>
         @endif
     </body>
 @include('includes.footer')

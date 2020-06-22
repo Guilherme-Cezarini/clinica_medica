@@ -15,6 +15,9 @@
         <link rel="stylesheet" href="<?php echo asset('css/slicknav.css'); ?>">
         <link rel="stylesheet" href="<?php echo asset('css/style.css'); ?>">
 
+        <!-- <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="//assets.locaweb.com.br/locastyle/2.0.6/stylesheets/locastyle.css"> -->
+
     </head>
     <!-- Começo Header -->
     <header>
@@ -31,36 +34,15 @@
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a href="#">Médico <i class="ti-angle-down"></i></a>
-                                            <ul class="submenu">
-                                                <li><a href="#">Consultar</a></li>
-                                                <li><a href="#">Cadastrar</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Convênio <i class="ti-angle-down"></i></a>
-                                            <ul class="submenu">
-                                                <li><a href="#">Consultar</a></li>
-                                                <li><a href="#">Cadastrar</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Especialidade <i class="ti-angle-down"></i></a>
-                                            <ul class="submenu">
-                                                <li><a href="#">Consultar</a></li>
-                                                <li><a href="#">Cadastrar</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Funcionário <i class="ti-angle-down"></i></a>
-                                            <ul class="submenu">
-                                                <li><a href="#">Consultar</a></li>
-                                                <li><a href="#">Cadastrar</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Usuário <i class="ti-angle-down"></i></a>
-                                            <ul class="submenu">
-                                                <li><a href="#">Consultar</a></li>
-                                                <li><a href="#">Cadastrar</a></li>
-                                            </ul>
-                                        </li>
+                                        <li><a href="#" class="btn">Médico </a></li>
+
+                                        <li><a href="#" class="btn">Convênio </a></li>
+
+                                        <li><a href="#" class="btn">Especialidade </a></li>
+
+                                        <li><a href="#" class="btn">Funcionário </a></li>
+
+                                        <li><a href="#" class="btn">Usuário </a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -68,7 +50,7 @@
                         <div class="col-xl-3 col-lg-3 d-none d-lg-block">
                             <div class="Appointment">
                                 <div class="book_btn d-none d-lg-block">
-                                    <a class="popup-with-form" href="#">Sair</a>
+                                    <a class="popup-with-form btn btn-primary" href="#">Sair</a>
                                 </div>
                             </div>
                         </div>
