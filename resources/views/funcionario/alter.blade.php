@@ -1,7 +1,7 @@
 @include('includes.header')
     <body>
         <!--Começo Formulário-->
-        <form action="/funcionarios/salvar" class="container">
+        <form action="/funcionarios/atualizar" class="container" method="POST">
             <h3 class="page-header">Alterar Funcionário</h3>
             <hr>
 

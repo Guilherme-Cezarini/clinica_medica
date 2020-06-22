@@ -19,8 +19,10 @@ Route::get('/', function () {
 Route::prefix('/funcionarios')->name('funcionarios.')->group(function(){
     Route::get('/', 'FuncionariosController@index');
     Route::get('/cadastrar', 'FuncionariosController@create');
-    Route::get('/visualizar', 'FuncionariosController@show');
+    Route::get('/visualizar/{id}', 'FuncionariosController@show');
     Route::get('/alterar/{id}', 'FuncionariosController@change');
     Route::post('/salvar', 'FuncionariosController@save');
+    Route::post('/atualizar', 'FuncionariosController@update');
+
 });
 

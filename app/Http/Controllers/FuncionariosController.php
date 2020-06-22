@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Funcionario;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Flash;
+use Illuminate\Support\Facades\Redis;
 
 class FuncionariosController extends Controller
 {
@@ -23,14 +25,15 @@ class FuncionariosController extends Controller
      */
     public function create()
     {
-
-        return view('funcionario.create');
+        $funcionario = new Funcionario();
+        return view('funcionario.create', compact('funcionario'));
     }
 
-    public function show()
+    public function show($id)
     {
+        $funcionario = Funcionario::find($id);
 
-        return view('funcionario.show');
+        return view('funcionario.show', compact('funcionario'));
     }
 
     public function change($id)
@@ -53,7 +56,7 @@ class FuncionariosController extends Controller
                 'endereco'      => $request->get('endereco'),
                 'cargo'         => $request->get('cargo'),
                 'salario'       => $request->get('salario'),
-                'dt_adimissao'  => $request->get('dt_admimissao'),
+                'dt_adimissao'  => $request->get('dt_adimissao'),
                 'dt_demissao'   => $request->get('dt_demissao'),
 
 
@@ -62,19 +65,33 @@ class FuncionariosController extends Controller
             try{
                 Funcionario::create($data);
 
-                return redirect('/funcionarios');
+                return redirect('/funcionarios')->with('success', 'Funcionário cadastrado/atualizado com sucesso.');
             }catch(\Exception $e){
-                \Flash::error('Não foi possivel cadastrar o funcionários, tente mais tarde.');
-
-                return redirect('/funcionarios');
+                return redirect('/funcionarios')->with('error', 'Não foi possivel cadastrar o funcionário, tente mais tarde.');
             }
-
             
         }else{
-            \Flash::error($dataValidation->errors()->first());
-
-            return redirect('/funcionarios');
+            return redirect('/funcionarios')->with('error', $dataValidation->errors()->first());
         }
+    }
+
+    public function update(Request $request)
+    {
+        $funcionario = Funcionario::find($request->get('id'));
+        try{
+            foreach($request->all() as $key => $value)
+            {
+                if($key == '_token') continue;
+                $funcionario->$key = $value;
+            }
+            $funcionario->save();
+
+            return redirect('/funcionarios')->with('success', 'Funcionário cadastrado com sucesso.');
+
+        }catch(\Exception $e){
+            return redirect('/funcionarios')->with('error', 'Não foi possivel atualizar o funcionário, tente mais tarde.');
+        }
+
     }
 
     public function validateRequest($data)
@@ -112,7 +129,7 @@ class FuncionariosController extends Controller
             'endereco.*'    => 'Endereço obrigatório',
             'cargo.*'       => 'Cargo é obrigatório',
             'salario.*'     => "Salarios é obrigatório",
-            'dt_adimissão'  => 'Data de adimissão é obrigatória'
+            'dt_adimissão.*'  => 'Data de adimissão é obrigatória'
 
         ];
     }

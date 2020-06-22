@@ -1,9 +1,8 @@
-<div {{ ($funcionario) ? "readonly=readonly" : "" }} >
-    @csrf       
+@csrf       
 <div class="row">
     <div class="form-group col-md-5 ">
     <label for="codFunc">Código</label>
-            <input type="text" class="form-control" id="codFunc" value="{{ $funcionario->id }}" disabled="">
+            <input type="text" name="id" class="form-control" id="codFunc" value="{{ $funcionario->id }}" readonly="readonly">
     </div>
 </div>
 
@@ -57,10 +56,14 @@
 <div class="row">
     <div class="form-group col-md-6">
         <label for="dataAdmFunc">Data de Admissão</label>
-        <input type="date" name="dt_admimissao" value="{{ $funcionario->dt_adimissao }}" class="form-control" id="dataAdmFunc" required>
+        <input type="date" name="dt_adimissao" value="{{ $funcionario->dt_adimissao }}" class="form-control" id="dataAdmFunc" required>
     </div>
     <div class="form-group col-md-6">
         <label for="dataDemFunc">Data de Demissão</label>
         <input type="date" name="dt_demissao" value="{{ $funcionario->dt_demissao }}" class="form-control" id="dataDemFunc">
     </div>
 </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> [feat] adicionar e alterar parcial

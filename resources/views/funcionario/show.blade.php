@@ -1,7 +1,7 @@
 @include('includes.header')
     <body>
         <!--Começo Formulário-->
-        <form action="#" class="container" readonly>
+        <form action="#" id="func_form" name="func_form" class="container">
             <h3 class="page-header">Visualizar Funcionário</h3>
             <hr>
             @include('funcionario.form')
@@ -10,30 +10,32 @@
         
             <div id="actions" class="row">
             <div class="col-md-12" align ="right">
-                <a href="#" class="btn btn-primary">Voltar</a>
+                <a href="/funcionarios" class="btn btn-primary">Voltar</a>
             </div>
             </div>
         </form>
         <!-- Final Formulário -->
         <!-- Pegar data -->
-        <script src="js/main.js"></script>
-        <script>
-            $('#dataAdmFunc').datepicker({
-                iconsLibrary: 'fontawesome',
-                icons: {
-                    rightIcon: '<span class="fa fa-caret-down"></span>'
-                }
-            });
-            $('#dataDemFunc').datepicker({
-                iconsLibrary: 'fontawesome',
-                icons: {
-                    rightIcon: '<span class="fa fa-caret-down"></span>'
-                }
-            });
-            $(document).ready(function() {
-                $('.js-example-basic-multiple').select2();
-            });
+        @section('scripts')
+            <script>
+                $('#dataAdmFunc').datepicker({
+                    iconsLibrary: 'fontawesome',
+                    icons: {
+                        rightIcon: '<span class="fa fa-caret-down"></span>'
+                    }
+                });
+                $('#dataDemFunc').datepicker({
+                    iconsLibrary: 'fontawesome',
+                    icons: {
+                        rightIcon: '<span class="fa fa-caret-down"></span>'
+                    }
+                });
+                $(document).ready(function() {
+                    $('.js-example-basic-multiple').select2();
+                });
+
         </script>
+       @stop
         
     </body>
 
