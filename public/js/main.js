@@ -181,6 +181,7 @@ $('.img-pop-up').magnificPopup({
 	}
 });
 
+
 /* magnificPopup video view */
 $('.popup-video').magnificPopup({
 	type: 'iframe'

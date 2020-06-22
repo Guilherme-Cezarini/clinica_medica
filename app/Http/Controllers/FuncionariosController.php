@@ -32,7 +32,6 @@ class FuncionariosController extends Controller
     public function show($id)
     {
         $funcionario = Funcionario::find($id);
-
         return view('funcionario.show', compact('funcionario'));
     }
 
@@ -42,9 +41,17 @@ class FuncionariosController extends Controller
         return view('funcionario.alter', compact('funcionario'));
     }
 
+    public function search(Request $request)
+    {   
+        $funcionarios = Funcionario::where('nome', 'like', '%' .$request->get('nome'). '%')->get();
+
+        return view('funcionario.search', compact('funcionarios'));
+    }
+
     public function save(Request $request)
     {
         $dataValidation = $this->validateRequest($request->all());
+
         if(!$dataValidation->fails())
         {
             $data = [
@@ -55,7 +62,7 @@ class FuncionariosController extends Controller
                 'telefone'      => $request->get('telefone'),
                 'endereco'      => $request->get('endereco'),
                 'cargo'         => $request->get('cargo'),
-                'salario'       => $request->get('salario'),
+                'salario'       => $this->removeSpecialChars($request->get('salario')),
                 'dt_adimissao'  => $request->get('dt_adimissao'),
                 'dt_demissao'   => $request->get('dt_demissao'),
 
@@ -64,10 +71,11 @@ class FuncionariosController extends Controller
 
             try{
                 Funcionario::create($data);
-
-                return redirect('/funcionarios')->with('success', 'Funcionário cadastrado/atualizado com sucesso.');
+            
+                return redirect('/funcionarios')->with('message', 'Funcionário cadastrado com sucesso.');
             }catch(\Exception $e){
-                return redirect('/funcionarios')->with('error', 'Não foi possivel cadastrar o funcionário, tente mais tarde.');
+                dd($e->getMessage());
+                return redirect('/funcionarios')->with('message', 'Não foi possivel cadastrar o funcionário, tente mais tarde.');
             }
             
         }else{
@@ -82,16 +90,25 @@ class FuncionariosController extends Controller
             foreach($request->all() as $key => $value)
             {
                 if($key == '_token') continue;
+                if($key == 'salario')
+                {
+                    $funcionario->$key = $this->removeSpecialChars($value);
+                    continue;
+                } 
                 $funcionario->$key = $value;
             }
             $funcionario->save();
 
-            return redirect('/funcionarios')->with('success', 'Funcionário cadastrado com sucesso.');
+            return redirect('/funcionarios')->with('message', 'Funcionário atualizado com sucesso.');
 
         }catch(\Exception $e){
-            return redirect('/funcionarios')->with('error', 'Não foi possivel atualizar o funcionário, tente mais tarde.');
+            return redirect('/funcionarios')->with('message', 'Não foi possivel atualizar o funcionário, tente mais tarde.');
         }
 
+    }
+
+    public static function removeSpecialChars($text) {
+        return preg_replace('/\D+/', '', $text);
     }
 
     public function validateRequest($data)
@@ -113,7 +130,7 @@ class FuncionariosController extends Controller
             'endereco'      => 'required',
             'cargo'         => 'required',
             'salario'       => 'required',
-            'dt_admimissao' => 'required'
+            'dt_adimissao' => 'required'
         ];
 
     }
@@ -129,7 +146,7 @@ class FuncionariosController extends Controller
             'endereco.*'    => 'Endereço obrigatório',
             'cargo.*'       => 'Cargo é obrigatório',
             'salario.*'     => "Salarios é obrigatório",
-            'dt_adimissão.*'  => 'Data de adimissão é obrigatória'
+            'dt_adimissao.*'  => 'Data de adimissão é obrigatória'
 
         ];
     }

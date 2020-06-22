@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- ícone -->
-        <link rel="shortcut icon" type="image/x-icon" href="img/icone.ico">
+        <link rel="shortcut icon" type="image/x-icon" href="<?php echo asset('img/icone.ico'); ?>">
 
         <!-- CSS -->
         <link rel="stylesheet" href="<?php echo asset('css/bootstrap.min.css'); ?>">
@@ -40,7 +40,7 @@
 
                                         <li><a href="#" class="btn">Especialidade </a></li>
 
-                                        <li><a href="#" class="btn">Funcionário </a></li>
+                                        <li><a href="/funcionarios" class="btn">Funcionário </a></li>
 
                                         <li><a href="#" class="btn">Usuário </a></li>
                                     </ul>

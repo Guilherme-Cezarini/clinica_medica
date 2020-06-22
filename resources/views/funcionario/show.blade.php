@@ -1,7 +1,7 @@
 @include('includes.header')
     <body>
         <!--Começo Formulário-->
-        <form action="#" id="func_form" name="func_form" class="container">
+        <form action="#" id="form1" name="form1" class="container">
             <h3 class="page-header">Visualizar Funcionário</h3>
             <hr>
             @include('funcionario.form')
@@ -33,7 +33,6 @@
                 $(document).ready(function() {
                     $('.js-example-basic-multiple').select2();
                 });
-
         </script>
        @stop
         

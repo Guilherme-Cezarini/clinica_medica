@@ -23,6 +23,7 @@ Route::prefix('/funcionarios')->name('funcionarios.')->group(function(){
     Route::get('/alterar/{id}', 'FuncionariosController@change');
     Route::post('/salvar', 'FuncionariosController@save');
     Route::post('/atualizar', 'FuncionariosController@update');
+    Route::post('/pesquisar', 'FuncionariosController@search');
 
 });
 

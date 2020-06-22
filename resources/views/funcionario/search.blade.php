@@ -1,10 +1,8 @@
 @include('includes.header')
     <body class="container">
-        <h3 class="page-header">Lista de funcionários</h3>
+        <h3 class="page-header">Pesquisa de funcionários</h3>
         <hr>
-        @if(Session::has('message'))
-            {{Session::get('message')}}
-        @endif
+
         <!-- Buscar Funcionário-->
         <form action="/funcionarios/pesquisar" method="POST">
             @csrf
@@ -17,10 +15,9 @@
                     <button type="submit" class="btn btn-primary">Pesquisar</button>
                 </div>
             </div>
-        </form> 
+        </form>
 
         @include('funcionario.list')
-
 
     </body>
 @include('includes.footer')

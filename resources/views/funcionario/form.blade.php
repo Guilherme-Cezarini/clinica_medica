@@ -63,7 +63,3 @@
         <input type="date" name="dt_demissao" value="{{ $funcionario->dt_demissao }}" class="form-control" id="dataDemFunc">
     </div>
 </div>
-<<<<<<< HEAD
-=======
-
->>>>>>> [feat] adicionar e alterar parcial
