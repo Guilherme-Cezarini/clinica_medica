@@ -5,8 +5,7 @@
             <table class="table table-striped" cellspacing="0" cellpadding="0">
                 <thead>
                     <tr>
-                        <th></th>
-                        <th >Funcionários</th>
+                        <th>Funcionários</th>
                         <th class="inativar">Inativar</th>
                         <th class="alterar">Alterar</th>
                         <th class="excluir">Excluir</th>
@@ -15,25 +14,17 @@
                 <tbody>
                     @foreach($funcionarios as $key => $funcionario)
                         <tr>
-                            <!--EDITAR!!!-->
-                            <div>
-                                <td><input type="checkbox" name="#" value="#"></td>
-                                <td>
-                                    <a href="/funcionarios/visualizar/{{$funcionario->id}}">{{ $funcionario->nome }} </a>
-                                </td>
-                                </a>
-                            </div>  
-                            <!--!!!!!!!!--> 
+                            <td><a href="/funcionarios/visualizar/{{$funcionario->id}}">{{ $funcionario->nome }} </a></td> 
+
                             @if($funcionario->activate)
                                 <td class="inativar" align="center" style="width:100px"><a href="/funcionarios/inativar/{{$funcionario->id}}"><img src="<?php echo asset('img/botoes/inativar.png'); ?>"></a></td>
                             @else
-                                <td class="ativar" align="center" style="width:100px"><a href="/funcionarios/ativar/{{$funcionario->id}}"><img src="<?php echo asset('img/botoes/inativar.png'); ?>"></a></td>
+                                <td class="ativar" align="center" style="width:100px"></td>
 
                             @endif
                             <td  class="alterar" align="center" style="width:100px"><a href="/funcionarios/alterar/{{$funcionario->id}}"><img src="<?php echo asset('img/botoes/alterar.png') ?>"></a></td>
 
                             <td class="excluir" align="center" style="width:100px"><a href="/funcionarios/deletar/{{$funcionario->id}}"><img src="<?php echo asset('img/botoes/excluir.png') ?>"></a></td>
-
                         </tr>
                     @endforeach
                 </tbody>
@@ -49,7 +40,7 @@
         </div>
     </div>
 @else
-    <div class="alert alert-danger alert-dismissable">
+    <div class="alert1 alert-danger alert-dismissable">
         <a href="#" class="close" data-dismiss="alert" aria-hidden="true">×</a>
         <p class="erro"><strong>Não há funcionários cadastrados com esse nome.</strong></p>
     </div>

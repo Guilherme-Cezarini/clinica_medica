@@ -3,7 +3,10 @@
         <h3 class="page-header">Lista de funcionários</h3>
         <hr>
         @if(Session::has('message'))
-            {{Session::get('message')}}
+            <div class="alert alert-warning alert-dismissable" id="notif">
+                <a href="#" class="close" data-dismiss="alert" aria-hidden="true">×</a>
+                <p class="erro"><strong> {{Session::get('message')}} </strong></p>
+            </div>
         @endif
         <!-- Buscar Funcionário-->
         <form action="/funcionarios/pesquisar" method="POST">
@@ -17,7 +20,17 @@
                     <button type="submit" class="btn btn-primary">Pesquisar</button>
                 </div>
             </div>
-        </form> 
+        </form>
+        
+        <!-- Notificação -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script>
+            $().ready(function() {
+	            setTimeout(function () {
+		            $('#notif').hide();
+	            }, 3500);
+            });
+        </script>
 
         @include('funcionario.list')
 

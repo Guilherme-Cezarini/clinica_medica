@@ -21,9 +21,9 @@
     </head>
     <!-- Começo Header -->
     <header>
-        <div class="header-area ">
+        <div class="header-area">
             <div id="sticky-header" class="main-header-area">
-                <div class="container2 ">
+                <div class="container2">
                     <div class="row align-items-center">
                         <div class="col-xl-3 col-lg-2">
                             <div class="align-items-center">

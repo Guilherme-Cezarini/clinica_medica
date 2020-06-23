@@ -184,8 +184,9 @@ a {
 }
 
 a:hover {
-    color: #0056b3;
-    text-decoration: underline
+    color: #008080;
+    text-decoration: none;
+    font-weight: 300;
 }
 
 a:not([href]):not([tabindex]) {
@@ -232,7 +233,8 @@ svg:not(:root) {
 }
 
 table {
-    border-collapse: collapse
+    border-collapse: collapse;
+
 }
 
 caption {
@@ -5188,6 +5190,16 @@ tbody.collapse.show {
 }
 
 .alert {
+    position: fixed;
+    top: 18px; right: 40px;
+    padding: 10px 12px 10px 12px;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    margin-top: 10px;
+}
+
+.alert1 {
     position: relative;
     padding: .75rem 1.25rem;
     margin-bottom: 1rem;
