@@ -33,12 +33,6 @@
         </div>
     </div>
     <!--Listagem Final-->
-
-    <div id="actions" class="row">
-        <div class="col-md-12" align ="right">
-            <a href="#" class="btn btn-primary">Voltar</a>
-        </div>
-    </div>
 @else
     <div class="alert1 alert-danger alert-dismissable">
         <a href="#" class="close" data-dismiss="alert" aria-hidden="true">×</a>

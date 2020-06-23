@@ -21,7 +21,13 @@
                 </div>
             </form>
 
-        @include('funcionario.list')
+            @include('funcionario.list')
+        
+            <div id="actions" class="row">
+                <div class="col-md-12" align ="right">
+                    <a href="/funcionarios" class="btn btn-primary">Voltar</a>
+                </div>
+            </div>
         <div>
     </body>
 @include('includes.footer')

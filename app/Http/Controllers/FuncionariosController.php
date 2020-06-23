@@ -7,7 +7,7 @@ use App\Funcionario;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Flash;
 use Illuminate\Support\Facades\Redis;
-
+use Carbon\Carbon;
 class FuncionariosController extends Controller
 {
     public function index()
@@ -81,6 +81,7 @@ class FuncionariosController extends Controller
 
         if(!$dataValidation->fails())
         {
+            $dtAdimissão = $request->get('dt_adimissao');
             $data = [
                 'nome'          => $request->get('nome'),
                 'rg'            => $request->get('rg'),
@@ -90,24 +91,31 @@ class FuncionariosController extends Controller
                 'endereco'      => $request->get('endereco'),
                 'cargo'         => $request->get('cargo'),
                 'salario'       => $this->removeSpecialChars($request->get('salario')),
-                'dt_adimissao'  => $request->get('dt_adimissao'),
-                'dt_demissao'   => $request->get('dt_demissao'),
+                'dt_adimissao'  => $this->parseDate($dtAdimissão),
 
 
             ];
+
 
             try{
                 Funcionario::create($data);
             
                 return redirect('/funcionarios')->with('message', 'Funcionário cadastrado com sucesso.');
             }catch(\Exception $e){
-                dd($e->getMessage());
                 return redirect('/funcionarios')->with('message', 'Não foi possivel cadastrar o funcionário, tente mais tarde.');
             }
             
         }else{
-            return redirect('/funcionarios')->with('error', $dataValidation->errors()->first());
+            return redirect('/funcionarios')->with('message', $dataValidation->errors()->first());
         }
+    }
+    /**
+     * Receive date from format d/m/Y
+     */
+    public function parseDate($date)
+    {
+        return Carbon::parse(str_replace('/', '-', $date));
+
     }
 
     public function update(Request $request)
@@ -117,11 +125,19 @@ class FuncionariosController extends Controller
             foreach($request->all() as $key => $value)
             {
                 if($key == '_token') continue;
-                if($key == 'salario')
+
+                if($key == 'salario') 
                 {
                     $funcionario->$key = $this->removeSpecialChars($value);
                     continue;
-                } 
+                }
+
+                if($key == 'dt_adimissao' || ($key == 'dt_adimissao' && $value))
+                {
+                    $funcionario->$key = $this->parseDate($value);
+                    continue;
+                }
+
                 $funcionario->$key = $value;
             }
             $funcionario->save();
