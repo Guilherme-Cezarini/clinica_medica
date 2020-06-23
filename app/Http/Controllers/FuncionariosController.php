@@ -35,6 +35,33 @@ class FuncionariosController extends Controller
         return view('funcionario.show', compact('funcionario'));
     }
 
+    public function inative($id)
+    {
+        $funcionario = Funcionario::find($id);
+        $funcionario->activate = false;
+        $funcionario->save();
+
+        return redirect('/funcionarios')->with('message', 'Funcionário inativado com sucesso.');
+    }
+
+    public function active($id)
+    {
+        $funcionario = Funcionario::find($id);
+        $funcionario->activate = true;
+        $funcionario->save();
+
+        return redirect('/funcionarios')->with('message', 'Funcionário ativado com sucesso.');
+    }
+
+    public function delete($id)
+    {
+        $funcionario = Funcionario::find($id);
+        $funcionario->delete();
+
+        return redirect('/funcionarios')->with('message', 'Funcionário deletado com sucesso.');
+
+    }
+
     public function change($id)
     {
         $funcionario = Funcionario::find($id);
