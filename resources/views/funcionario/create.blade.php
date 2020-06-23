@@ -2,7 +2,7 @@
     <body>
 
         <!-- Começo Formulário -->
-        <form action="salvar" class="container" method="POST">
+        <form action="/funcionarios/salvar" class="container" method="POST">
             <h3 class="page-header">Cadastrar Funcionário</h3>
             <hr>
 
