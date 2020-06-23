@@ -7,16 +7,20 @@
 
             @csrf       
             <div class="row">
-                <div class="form-group col-md-5 ">
+                <div class="form-group col-md-5">
                 <label for="codFunc">Código</label>
                         <input type="text" name="id" class="form-control" id="codFunc" value="{{ $funcionario->id }}" readonly="readonly">
+                </div>
+                <div class="form-group col-md-2">
+                <label for="statusFunc">Status</label>
+                        <input type="text" name="activate" class="form-control" id="statusFunc" value="{{ $funcionario->activate }}" readonly="readonly">
                 </div>
             </div>
 
             <div class="row">
-                <div class="form-group col-md-12 ">
-                <label for="nomeFunc">Nome</label>
-                <input type="text" name="nome" value="{{ $funcionario->nome }}" class="form-control" id="nomeFunc" readonly="readonly">
+                <div class="form-group col-md-12">
+                    <label for="nomeFunc">Nome</label>
+                    <input type="text" name="nome" value="{{ $funcionario->nome }}" class="form-control" id="nomeFunc" readonly="readonly">
                 </div> 
             </div>
 
