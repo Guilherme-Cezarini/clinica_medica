@@ -4,12 +4,6 @@
     <label for="codFunc">Código</label>
             <input type="text" name="id" class="form-control" id="codFunc" value="{{ $funcionario->id }}" readonly="readonly">
     </div>
-    <div class="form-group col-md-5">
-        <select placeholder="Status">
-            <option value="ativo">Ativo</option>
-            <option value="inativo">Inativo</option>
-        </select>
-    </div>
 </div>
 
 <div class="row">

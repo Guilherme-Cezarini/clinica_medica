@@ -80,25 +80,6 @@
             </div>
         </form>
         <!-- Final Formulário -->
-        <!-- Pegar data -->
-        @section('scripts')
-            <script>
-                $('#dataAdmFunc').datepicker({
-                    iconsLibrary: 'fontawesome',
-                    icons: {
-                        rightIcon: '<span class="fa fa-caret-down"></span>'
-                    }
-                });
-                $('#dataDemFunc').datepicker({
-                    iconsLibrary: 'fontawesome',
-                    icons: {
-                        rightIcon: '<span class="fa fa-caret-down"></span>'
-                    }
-                });
-                $(document).ready(function() {
-                    $('.js-example-basic-multiple').select2();
-                });
-        </script>
        @stop
         
     </body>

@@ -15,9 +15,6 @@
         <link rel="stylesheet" href="<?php echo asset('css/slicknav.css'); ?>">
         <link rel="stylesheet" href="<?php echo asset('css/style.css'); ?>">
 
-        <!-- <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="//assets.locaweb.com.br/locastyle/2.0.6/stylesheets/locastyle.css"> -->
-
     </head>
     <!-- Começo Header -->
     <header>

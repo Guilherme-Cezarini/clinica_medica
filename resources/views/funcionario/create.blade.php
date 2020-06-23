@@ -17,27 +17,6 @@
             </div>
         </form>
         <!-- Final Formulário-->
-    </body>
-    
-    <!-- Pegar data -->
-    <script src="js/main.js"></script>
-    <script>
-        $('#dataAdmFunc').datepicker({
-            iconsLibrary: 'fontawesome',
-            icons: {
-                rightIcon: '<span class="fa fa-caret-down"></span>'
-            }
-        });
-        
-        $('#dataDemFunc').datepicker({
-            iconsLibrary: 'fontawesome',
-            icons: {
-                rightIcon: '<span class="fa fa-caret-down"></span>'
-            }
-        });
 
-        $(document).ready(function() {
-            $('.js-example-basic-multiple').select2();
-        });
-    </script>
+    </body>
 @include('includes.footer')

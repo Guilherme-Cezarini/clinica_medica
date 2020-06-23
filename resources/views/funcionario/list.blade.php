@@ -1,4 +1,5 @@
 @if(!$funcionarios->isEmpty())
+
     <!-- Listagem Começo-->
     <div id="list" class="row">
         <div class="table-responsive col-md-12">
@@ -35,7 +36,6 @@
 
     <div id="actions" class="row">
         <div class="col-md-12" align ="right">
-            <button type="submit" class="btn btn-primary">Visualizar</button>
             <a href="#" class="btn btn-primary">Voltar</a>
         </div>
     </div>
