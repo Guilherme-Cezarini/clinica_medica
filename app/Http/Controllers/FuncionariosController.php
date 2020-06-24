@@ -132,19 +132,22 @@ class FuncionariosController extends Controller
                     continue;
                 }
 
-                if($key == 'dt_adimissao' || ($key == 'dt_adimissao' && $value))
+                if($key == 'dt_adimissao' || ($key == 'dt_demissao' && $value))
                 {
                     $funcionario->$key = $this->parseDate($value);
                     continue;
                 }
-
                 $funcionario->$key = $value;
             }
+
+            if($funcionario->dt_adimissao->gt($funcionario->dt_demissao)) return redirect("/funcionarios/alterar/{$funcionario->id}")->with('message', 'Data de demissão não pode ser menor que a de adimissão.');
+
             $funcionario->save();
 
             return redirect('/funcionarios')->with('message', 'Funcionário atualizado com sucesso.');
 
         }catch(\Exception $e){
+            dd($e);
             return redirect('/funcionarios')->with('message', 'Não foi possivel atualizar o funcionário, tente mais tarde.');
         }
 
