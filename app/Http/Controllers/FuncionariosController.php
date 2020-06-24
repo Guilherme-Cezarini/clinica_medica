@@ -147,7 +147,6 @@ class FuncionariosController extends Controller
             return redirect('/funcionarios')->with('message', 'Funcionário atualizado com sucesso.');
 
         }catch(\Exception $e){
-            dd($e);
             return redirect('/funcionarios')->with('message', 'Não foi possivel atualizar o funcionário, tente mais tarde.');
         }
 
