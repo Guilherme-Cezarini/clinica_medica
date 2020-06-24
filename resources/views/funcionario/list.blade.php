@@ -18,14 +18,14 @@
                             <td><a href="/funcionarios/visualizar/{{$funcionario->id}}">{{ $funcionario->nome }} </a></td> 
 
                             @if($funcionario->activate)
-                                <td class="inativar" align="center" style="width:100px"><a href="/funcionarios/inativar/{{$funcionario->id}}"><img src="<?php echo asset('img/botoes/inativar.png'); ?>"></a></td>
+                                <td class="inativar" align="center" style="width:100px"><a href="/funcionarios/inativar/{{$funcionario->id}}"><img src="<?php echo asset('img/botoes/inativar.png'); ?>" title="Inativar funcionario"></a></td>
                             @else
                                 <td class="ativar" align="center" style="width:100px"></td>
 
                             @endif
-                            <td  class="alterar" align="center" style="width:100px"><a href="/funcionarios/alterar/{{$funcionario->id}}"><img src="<?php echo asset('img/botoes/alterar.png') ?>"></a></td>
+                            <td  class="alterar" align="center" style="width:100px"><a href="/funcionarios/alterar/{{$funcionario->id}}"><img src="<?php echo asset('img/botoes/alterar.png') ?>" title="Alterar funcionario"></a></td>
 
-                            <td class="excluir" align="center" style="width:100px"><a href="/funcionarios/deletar/{{$funcionario->id}}"><img src="<?php echo asset('img/botoes/excluir.png') ?>"></a></td>
+                            <td class="excluir" align="center" style="width:100px"><a href="/funcionarios/deletar/{{$funcionario->id}}"><img src="<?php echo asset('img/botoes/excluir.png') ?>" title="Excluir funcionario"></a></td>
                         </tr>
                     @endforeach
                 </tbody>
