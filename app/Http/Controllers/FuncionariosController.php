@@ -152,6 +152,15 @@ class FuncionariosController extends Controller
 
     }
 
+    public static function statusFunc($option)
+    {
+        $status = [
+            '0' => 'Inativo',
+            '1' => 'Ativo'
+        ];
+        return $status[$option];
+    }
+
     public static function removeSpecialChars($text) {
         return preg_replace('/\D+/', '', $text);
     }

@@ -13,7 +13,7 @@
                 </div>
                 <div class="form-group col-md-2">
                 <label for="statusFunc">Status</label>
-                        <input type="text" name="activate" class="form-control" id="statusFunc" value="{{ $funcionario->activate }}" readonly="readonly">
+                        <input type="text" name="activate" class="form-control" id="statusFunc" value="{{ App\Http\Controllers\FuncionariosController::statusFunc($funcionario->activate) }}" readonly="readonly">
                 </div>
             </div>
 
